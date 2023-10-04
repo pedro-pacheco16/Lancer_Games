@@ -2,11 +2,11 @@
 using LojaGame.Model;
 using LojaGame.Service;
 using FluentValidation;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace LojaGame.Controller
 {
-
+    [Authorize]
     [Route("~/produtos")] // rota padrão
     [ApiController]// classe de controle gerência os acessos
     public class ProdutoController : ControllerBase
@@ -78,9 +78,9 @@ namespace LojaGame.Controller
             var resposta = await _ProdutoService.Update(produto);
 
             if (resposta is null)
-                return NotFound("Produto não encontrados!");
+                return NotFound("Game não encontrados!");
 
-            return Ok();
+            return Ok(resposta);
 
 
         }

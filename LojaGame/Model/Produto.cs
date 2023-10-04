@@ -23,8 +23,8 @@ namespace LojaGame.Model
 
         [DataType(DataType.Date)]
         [Column(TypeName = "DATE")]
-        public DateOnly? DataLancamento { get; set; }
-        
+        public DateOnly? DataLancamento { get; set; } 
+
         [Column(TypeName = "Decimal(6,2)")]
         public decimal Preco { get; set; }
 

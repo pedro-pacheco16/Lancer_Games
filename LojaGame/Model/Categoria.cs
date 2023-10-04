@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace LojaGame.Model
 {
@@ -14,6 +15,7 @@ namespace LojaGame.Model
         public string Tipo { get; set; } = string.Empty;
 
         [InverseProperty("Categoria")]
+ 
         public virtual ICollection<Produto>? produto { get; set; }
 
 

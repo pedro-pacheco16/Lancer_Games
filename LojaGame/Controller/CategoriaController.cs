@@ -2,11 +2,11 @@
 using LojaGame.Model;
 using LojaGame.Service;
 using FluentValidation;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace LojaGame.Controller
 {
-
+    [Authorize]
     [Route("~/categorias")]
     [ApiController]
     public class CategoriaController : ControllerBase
@@ -54,7 +54,7 @@ namespace LojaGame.Controller
             var Resposta = await _CategoriaService.Create(categoria);
 
             if (Resposta is null)
-                return BadRequest("Produto não cadastrado!");
+                return BadRequest("Categoria não cadastrada!");
 
             return CreatedAtAction(nameof(GetById), new { id = categoria.id }, categoria);
         }
