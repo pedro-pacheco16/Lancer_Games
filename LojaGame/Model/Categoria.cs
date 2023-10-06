@@ -14,8 +14,10 @@ namespace LojaGame.Model
         [StringLength(100)]
         public string Tipo { get; set; } = string.Empty;
 
+       
         [InverseProperty("Categoria")]
- 
+        [JsonIgnore]
+
         public virtual ICollection<Produto>? produto { get; set; }
 
 
